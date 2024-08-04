@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mobile-menu {
+  transition: max-height 0.3s ease-in-out;
+}
+.background-container {
+  background-image: url("/public/pizza_optimized.png"),
+    url("/public/burger_optimized.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, auto;
+  background-position: left 0% top 50%, right 0% top 50%;
+  background-size: 200px 200px, 200px 200px;
+}
+
+/* coming soon button */
+
+.color-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 542px;
+  height: 109px;
+  padding: 29px 48px;
+  border-radius: 40px;
+  letter-spacing: 8px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(#19083c, #19083c) padding-box,
+    linear-gradient(60deg, #ff00ff, #00e8ff) border-box;
+  color: #3498db;
+  overflow: hidden;
+  box-shadow: 0 0 25px 5px rgba(0, 142, 236, 0.815);
+}
+.color-button .text {
+  z-index: 2;
+  color: white;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 56px;
+}
+.circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  display: none;
+  filter: blur(30px); /* Add blur filter */
+  background: #ff00ff; /* Initial color */
+  z-index: 1;
+  transition: background 0.3s ease, width 0.3s ease, height 0.3s ease,
+    left 0.1s ease, top 0.1s ease; /* Smooth transitions */
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    width: 80px;
+    height: 80px;
+    background: #ff00ff;
+  }
+  50% {
+    width: 60px;
+    height: 60px;
+    background: #00ffff;
+  }
+}
+
+.circle.glowing {
+  animation: glow 3s infinite;
+}
+/* coming soon button finished */
+
+/* preview section */
+
+.swiper-slide-custom {
+  transition: margin-top 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .swiper-slide-custom:nth-child(3n+1),
+  .swiper-slide-custom:nth-child(3n+3) {
+    margin-top: 20px;
+  }
+  .swiper-slide-custom:nth-child(3n+2) {
+    margin-top: 0;
+  }
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+  .background-container {
+    background-image: none; /* Remove background images */
+  }
+}
